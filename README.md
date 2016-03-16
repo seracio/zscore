@@ -10,6 +10,14 @@ Standard score in JavaScript
 npm i zscore --save
 ```
 
+## Usage
+
+```javascript
+import zscore from 'zscore';
+
+const myStandardizedArray = zscore(myArray);
+```
+
 ## Dependencies
 
 * [d3-array]
