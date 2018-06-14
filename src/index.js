@@ -2,11 +2,12 @@
 
 import { mean, deviation } from 'd3-array';
 
-const zcore = inputs => {
-    const m = mean(inputs);
+const zcore = (inputs, accessor) => {
+    const m = mean(inputs, accessor);
     // here the n-1 : http://duramecho.com/Misc/WhyMinusOneInSd.html
-    const d = deviation(inputs);
-    return inputs.map( i => (i - m) / d );
+    const d = deviation(inputs, accessor);
+    const getInput = accessor || ((v) => v);
+    return inputs.map(i => (getInput(i) - m) / d);
 };
 
 export default zcore;
